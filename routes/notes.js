@@ -8,7 +8,7 @@ const {
 
 // GET Route for retrieving all the notes
 notes.get('/', (req, res) => {
-  readFromFile('./Develop/db/db.json').then((data) => res.json(JSON.parse(data)));
+  readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 
@@ -42,7 +42,7 @@ notes.post('/', (req, res) => {
       id: uuidv4(),
     };
 
-    const parsedData = readAndAppend(newNote, './Develop/db/db.json');
+    const parsedData = readAndAppend(newNote, './db/db.json');
     res.json(parsedData);
   } else {
     res.error('Error in adding tip');
